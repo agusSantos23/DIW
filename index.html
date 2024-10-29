@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Listado de Imagenes</title>
+</head>
+<body>
+
+  <header>
+    <h1>Listado Dinamico con Imagenes</h1>
+
+    <label for="select">
+      Selecciona el numero de filas:
+      <select name="select">
+        <option value="5" selected>5 Filas</option>
+        <option value="10">10 Filas</option>
+        <option value="20">20 Filas</option>
+        <option value="50">50 Filas</option>
+      </select>
+    </label>
+    
+
+  </header>
+  <main>
+
+    <table>
+      <thead>
+        <th id="col1">Imagen</th>
+        <th id="col2">ID</th>
+        <th id="col3">Descripcion</th>
+      </thead>
+      <tbody>
+        
+      </tbody>
+
+    </table>
+
+    <script>
+
+      document.addEventListener('DOMContentLoaded', () =>  updateImageList(5) )
+      
+      document.querySelector('select').addEventListener('change', (event) => updateImageList(parseInt(event.target.value, 10)) );
+
+      const updateImageList = rows => {
+
+        const tbody = document.querySelector('tbody');
+        tbody.innerHTML = '';
+
+        for (let i = 1; i <= rows; i++) {
+
+          const row = document.createElement('tr');
+          row.classList.add(i % 2 === 0 && 'par');
+
+          const imgCell = document.createElement('td');
+          const img = new Image()
+          img.src = "https://picsum.photos/200/200?image=" + i
+          img.alt = i
+          img.loading = "lazy"
+          imgCell.appendChild(img)
+
+          const idCell = document.createElement('td'); 
+          idCell.innerText = "#"+i
+          
+          const descCell = document.createElement('td'); 
+          descCell.innerText = "Imagen " + i
+
+          row.appendChild(imgCell); 
+          row.appendChild(idCell); 
+          row.appendChild(descCell);
+
+          tbody.appendChild(row);
+        }
+        
+      }
+
+    </script>
+  </main>
+</body>
+</html>
