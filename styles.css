@@ -1,25 +1,29 @@
 
 :root { 
-  --primary-color: #F6FCDF; 
-  --secondary-color: #1A1A19; 
-  --accent-color: #859F3D; 
-  --background-color: #31511E; 
+  --primary-color: #F2E5BF; 
+  --secondary-color: #FD8B51; 
+  --accent-color: #CB6040; 
+  --background-color: #257180; 
 }
 
 body{
   height: 100vh;
   background: var(--background-color);
-  color: var(--primary-color);
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 header{
   text-align: center;
   margin-bottom: 100px;
+  color: var(--primary-color);
 }
 
 h1{
   font-size: 45px;
   margin: 0 0 30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 label{
@@ -33,11 +37,9 @@ select{
   background: transparent;
   border: none;
   cursor: pointer;
-  transition: 0.3s ease}
-
-select:hover{
-  color: var(--accent-color);
+  transition: 0.3s ease
 }
+
 
 option{
   background: var(--secondary-color);
@@ -47,6 +49,7 @@ main{
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--primary-color);
 }
 
 table{
@@ -59,9 +62,11 @@ th,td{
 }
 
 th{
-  background: var(--secondary-color);
+  background: var(--primary-color);
+  color: var(--accent-color);
   font-size: 20px;
 }
+
 
 #col1{
   width: 15%;
@@ -79,12 +84,14 @@ th{
   background: var(--accent-color);
 }
 
-
+.inpar{
+  background: var(--secondary-color);
+}
 
 img{
   border-radius: 100%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 p{
