@@ -1,0 +1,43 @@
+body{
+  margin: 0;
+  height: 100vh;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+}
+
+header{
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+h1{
+  margin: 0;
+}
+
+label{
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+
+}
+
+select{
+  padding: 5px 10px;
+  font-size: 17px;
+}
+
+main {
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+main > div:first-child {
+  width: 40vw;
+}
+
+main > div:last-child {
+  width: 25vw;
+}

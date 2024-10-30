@@ -1,29 +1,44 @@
 
+var chartBar  
+var chartDonut
 
 const handleData = async rows => {
 
-  const data = await (await fetch(`datos-${rows}.json`)).json()
+  const data = await (await fetch(`datos-${rows}.json`)).json()  
 
-
-  renderBarChart(data.sales, data.labels);
-  renderDonutChart( data.sales, data.labels);
+  chartBar.updateOptions({
+    series: [{
+      name: 'Datos Nuevos',
+      data: data.sales
+    }],
+    xaxis: {
+      categories: data.labels
+    }
+  })
   
-  
+  chartDonut.updateOptions({
+    series: data.sales,
+    labels: data.labels
+  })
 }
 
-const renderBarChart = (sales, labels) => {
 
-  let optionsBar = {
+document.querySelector('select').addEventListener('change', (event) => handleData(parseInt(event.target.value, 10)))
+
+document.addEventListener('DOMContentLoaded',async () => {
+  const data = await (await fetch(`datos-2019.json`)).json()
+
+  const optionsBar = {
     series: [{
-      name: "Sales",
-      data: sales
+      name: "sales",
+      data: data.sales
     }],
     chart: {
       type: 'bar',
       height: 380
     },
     xaxis: {
-      categories: labels,
+      categories: data.labels,
       labels: {
         style: {
           fontSize: '12px',
@@ -31,20 +46,18 @@ const renderBarChart = (sales, labels) => {
         }
       }
     },
-  };
+  }
+  chartBar = new ApexCharts(document.querySelector("#chart-bar"), optionsBar)
+  chartBar.render()
 
-  const chartBar = new ApexCharts(document.querySelector("#chart-bar"), optionsBar);
-  chartBar.render();
-};
 
-const renderDonutChart = (sales, labels) => {
-  let optionsDonut = {
-    series: sales, 
+  const optionsDonut = {
+    series: data.sales, 
     chart: {
       type: 'donut',
       height: 380
     },
-    labels: labels, 
+    labels: data.labels, 
     responsive: [{
       breakpoint: 480,
       options: {
@@ -57,16 +70,7 @@ const renderDonutChart = (sales, labels) => {
       }
     }]
   }
-  
+  chartDonut = new ApexCharts(document.querySelector("#chart-donut"), optionsDonut)
+  chartDonut.render()
 
-  const chartDonut = new ApexCharts(document.querySelector("#chart-donut"), optionsDonut);
-  console.log(chartDonut.data.w.config.series);
-  chartDonut.render();
-  console.log(chartDonut.data.w.config.series);
-};
-
-
-
-
-
-document.querySelector('select').addEventListener('change', (event) => handleData(parseInt(event.target.value, 10)))
+})
