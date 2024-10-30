@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graficos Interactivos</title>
+</head>
+<body>
+    <header>
+      <h1>Graficos Interactivos</h1>
+      <label for="data">
+        Selecciona datos de una fecha:
+        <select name="data" id="data">
+          <option value="2019" selected>Datos 2019</option>
+          <option value="2020">Datos 2020</option>
+        </select>
+      </label>
+    </header>
+    <body>
+      <div id="chart-bar"></div>
+      <div id="chart-donut"></div>
+
+      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+      <script src="process.js"></script>
+
+    </body>
+</body>
+</html>
