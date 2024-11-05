@@ -1,0 +1,61 @@
+body{
+  background-size: cover; 
+  background-repeat: no-repeat;
+  transition: background-image 2s ease;
+}
+
+section{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: rgba(33, 33, 33, 0.6);
+  padding: 15px 20px;
+  border-radius: 15px;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+
+}
+
+div{
+  margin: 10px 0;
+}
+
+div:first-child{
+  width: 285px;
+  overflow: hidden; 
+  position: relative;
+}
+
+h1{
+  white-space: nowrap;
+  font-size: 30px;
+  color: white;
+  margin: 0;
+  animation: desplazamiento 10s linear infinite;
+}
+
+button{
+  font-size: 20px;
+  cursor: pointer;
+  min-width: 140px;
+  padding: 5px 0;
+  border: solid 1px white;
+  border-radius: 5px;
+  color: white;
+  background:transparent;
+  transition: .2s ease-in;
+}
+
+button:hover{
+  background-color: white;
+  color: #212121;
+}
+
+button:active{
+  background-color: #212121;
+  color: #212121;
+}
+
+@keyframes desplazamiento {
+  from { transform: translateX(100%); } 
+  to { transform: translateX(-250%); }
+}
