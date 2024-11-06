@@ -7,22 +7,53 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <audio loop></audio>
+  <main>
+    <!-- Primera sección con enlaces a plataformas externas -->
+    <section>
+      <!-- Target _blanck para redirigir al usuario en una nueva ventana -->
+      <a href="https://discord.com/invite/illojuan" target="_blank">
+        <img src="./svg/discord.svg" alt="discord"> <!-- Imagen asociando archivo svg -->
+      </a>
 
-  <section>
-    <div>
-      <h1>LOS DIOZES - HOTEL MALIGNO / <span></span></h1>
-    </div>
-    <div>
-      <button onclick="decreaseVolume()">VOLUMEN -</button>
-      <button onclick="increaseVolume()">VOLUMEN +</button>
-    </div>
-    <div>
-      <button id="btnMute" onclick="muteAudio()">MUTE</button>
-      <button onclick="changeTrackRandomly()">NEXT</button>
-    </div>
-    
-  </section>
+      <a href="https://www.youtube.com/watch?v=qRqBZR7TLFQ" target="_blank">
+        <img src="./svg/youtube.svg" alt="youtube">
+      </a>
+
+      <a href="https://www.rtve.es/noticias/ayuda-victimas-de-la-dana/" target="_blank">
+        <img src="./svg/heart.svg" alt="donate heart">
+      </a>
+    </section>
+  
+    <!-- Segunda seccion con controles interactivos -->
+    <section>
+      <article>
+        <!-- Título del la cancion -->
+        <div> 
+          <h1>LOS DIOZES - HOTEL MALIGNO / <span></span></h1>
+        </div>
+        <!-- Botones para controlar el volumen del audio -->
+        <div>
+          <button onclick="decreaseVolume()">VOLUMEN -</button>
+          <button onclick="increaseVolume()">VOLUMEN +</button>
+        </div>
+        <div>
+          <!-- Boton para silenciar el audio -->
+          <button id="btnMute" onclick="muteAudio()">MUTE</button>
+          <!-- Boton para cambiar la pista de audio aleatoriamente -->
+          <button onclick="changeTrackRandomly()">NEXT</button>
+        </div>
+      </article>
+
+      <!-- Texto para mostrar los mensajes de carga -->
+      <article>
+        <h3></h3>
+      </article>
+      
+    </section>
+  </main>
+
+  <!-- Reproductor de audio, configurado para reproducirse en bucle -->
+  <audio loop></audio>
 
   <script src="./script.js"></script>
 </body>
