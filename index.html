@@ -18,7 +18,7 @@
       <button onclick="increaseVolume()">VOLUMEN +</button>
     </div>
     <div>
-      <button onclick="muteAudio()">UNMUTE</button>
+      <button id="btnMute" onclick="muteAudio()">MUTE</button>
       <button onclick="changeTrackRandomly()">NEXT</button>
     </div>
     
@@ -47,14 +47,14 @@
     }
 
     const muteAudio = () =>{
-      const button = event.currentTarget;
+      const btnMute = document.getElementById('btnMute');
 
       if (audio.volume === 0) {
         audio.volume = 0.5 
-        button.innerText = "MUTE"
+        btnMute.innerText = "MUTE"
       }else{
         audio.volume = 0
-        button.innerText = 'UNMUTE'
+        btnMute.innerText = 'UNMUTE'
       }
     } 
 
